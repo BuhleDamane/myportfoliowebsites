@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Frontend Developer & Data Analyst</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-papLF7KaX+W0S7k9ZyAkxR0fEdk7q0urIqGw1Pn44c+Uz2z7+OgYHxq3XPC9F5aJvDjC8XqloiH+5z9Uw2P6Lg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+        --font-body: 'Roboto', sans-serif;
+        --font-heading: 'Playfair Display', serif;
+        }
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        p {
+        font-family: var(--font-body);
+        }
+
+
+        h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-heading);
+        font-weight: 700;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        .nav-container a{
+             font-family: var(--font-heading)
+        }
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 1rem 0;
+        }
+
+        .mobile-menu li {
+            text-align: center;
+            padding: 0.5rem 0;
+        }
+
+        .mobile-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            display: block;
+            padding: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            color: #667eea;
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 80px;
+        }
+
+                .hero-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: float 3s ease-in-out infinite;
+            overflow: hidden;
+            position: relative;
+            }
+
+            .hero-image img {
+            width: 90%;
+            height: 90%;
+            object-fit: cover;
+            border-radius: 50%;
+            }
+
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: white;
+            max-width: 600px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .cta-button {
+            padding: 1rem 2rem;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .skills-preview {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: scale(1.05);
+        }
+
+        .skill-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .skill-card p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+
+            .testimonials {
+            padding: 4rem 1rem;
+            text-align: center;
+            }
+
+            .testimonials h2 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 2rem;
+            }
+
+            .testimonial-container {
+            perspective: 1000px;
+            width: 80%;
+            max-width: 600px;
+            margin: auto;
+            height: 200px;
+            position: relative;
+            }
+
+            .testimonial-card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+            }
+
+            .testimonial-content {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            }
+
+            .testimonial-content p {
+            font-size: 1rem;
+            line-height: 1.5;
+            font-family: var(--font-body);
+            }
+
+            .author {
+            margin-top: 1rem;
+            font-weight: bold;
+            color: #764ba2;
+            }
+            .testimonial-content.back {
+            transform: rotateY(180deg);
+            }
+            .contact-page {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+            }
+
+            .contact-page.active {
+            max-height: 1000px;
+            opacity: 1;
+            transform: translateY(0);
+            }
+
+
+        .contact-section {
+        
+        width: 80%;
+        max-width: 1200px;
+        margin: 3rem auto;
+        padding: 2rem 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        }
+        .social-media-icons {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        }
+
+        .social-media-icons a img {
+        width: 30px;
+        height: 30px;
+        transition: transform 0.3s ease;
+        }
+
+        .social-media-icons a:hover img {
+        transform: scale(1.2);
+        cursor: pointer;
+        }
+        .contact-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: #764ba2;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            background: #667eea;
+        }
+                    .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            }
+
+            .contact-item {
+            width: 200px;
+            height: 120px;
+            perspective: 800px;
+            }
+            .contact-item h3 {
+            font-weight: bold;
+            color: #764ba2;
+            font-size: 1.2rem;
+            }
+
+            .contact-item p {
+            font-size: 1rem;
+            color: #333;
+            }
+
+            .contact-item .flip-card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s ease;
+            }
+
+            .contact-item:hover .flip-card {
+            transform: rotateY(180deg);
+            }
+
+            .contact-item .flip-front,
+            .contact-item .flip-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            }
+            .contact-item .flip-back p{
+                font-size: 10px ;
+                color: #764ba2;
+            }
+            .contact-item .flip-back {
+            transform: rotateY(180deg);
+            }
+
+
+        .footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .portfolio-page {
+            display: none;
+            min-height: 100vh;
+            background: #f8f9fa;
+            padding-top: 80px;
+        }
+
+        .portfolio-page.active {
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .portfolio-hero {
+            text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+ .hero-description {
+            font-size: 1.1rem;
+            color: #e9ecef;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .btn-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .portfolio-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 15px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        .projects-section {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+
+        .projects-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 2rem;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-overlay h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-overlay p {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .project-overlay .tech-stack {
+            font-size: 0.8rem;
+            color: #ccc;
+            margin-bottom: 1rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-links a {
+            padding: 0.5rem 1rem;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            transition: background 0.3s ease;
+        }
+
+        .project-links a:hover {
+            background: #764ba2;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .project-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .empty-project {
+            border: 2px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+            color: #999;
+            font-style: italic;
+        }
+
+        .contact-page {
+            padding: 4rem 0;
+            background: white;
+            text-align: center;
+        }
+
+        .contact-page h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #764ba2;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            background: #764ba2;
+            padding: 2rem;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-item h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        
+
+        .landing-page {
+            display: block;
+        }
+
+        .landing-page.hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .skills-preview {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-nav .nav-links {
+                display: none;
+            }
+
+            .portfolio-nav .hamburger {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .portfolio-nav .nav-links {
+                display: none;
+            }
+
+            .portfolio-nav .hamburger {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="landing-page" id="landingPage">
+
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="#" class="logo" onclick="showLandingPage()">Buhle Damane</a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger" onclick="toggleMobileMenu('landingMenu')">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="mobile-menu" id="landingMenu">
+                    <ul>
+                        <li><a href="#home" onclick="closeMobileMenu('landingMenu')">Home</a></li>
+                        <li><a href="#about" onclick="closeMobileMenu('landingMenu')">About</a></li>
+                        <li><a href="#contact" onclick="closeMobileMenu('landingMenu')">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <section class="hero" id="home">
+           <div class="hero-image">
+            <img src="images/image.png" alt="Your Photo" />
+            </div>
+
+            <h1>Frontend Developer & Data Analyst</h1>
+            <p>I build web applications that work beautifully and turn data into business insights that actually matter.</p>
+             
+        <p>My interest in frontend development sparked in 2023 when I kept seeing people talk about it on TikTok curiosity led me to dive in, and I haven't looked back. In 2024, I expanded into data analytics through ALX's program because I realized the power of combining beautiful interfaces with meaningful data stories.</p>
+        
+        <p>I hold an LLB and I'm currently advancing in my LLM, but tech became my passion. This website will take you through my journey with <span class="highlight">React development and data analytics projects</span>showing how I blend technical skills with analytical thinking.</p>
+    
+            <div class="cta-buttons">
+                <a href="#" class="cta-button" onclick="showPortfolio('frontend')">
+                    Frontend Development
+                    <br><small>JavaScript, React, HTML, CSS, Bootstrap, Node.js</small>
+                </a>
+                <a href="#" class="cta-button secondary" onclick="showPortfolio('data')">
+                    Data Analytics
+                    <br><small>SQL, Python, Tableau, Power BI, Excel</small>
+                </a>
+            </div>
+
+            <div class="skills-preview">
+                <div class="skill-card">
+                    <h3>Frontend Development</h3>
+                    <p>Modern, responsive web applications using the latest technologies and best practices.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Data Analytics</h3>
+                    <p>Transform raw data into actionable insights through advanced analytics and visualization.</p>
+                </div>
+            </div>
+        </section>
+
+      
+
+        <section class="testimonials">
+        <h2>What Clients Say</h2>
+        <div class="testimonial-container">
+            <div class="testimonial-card">
+            <div class="testimonial-content front">
+                <p>"Exceptional work quality and attention to detail. The web application exceeded our expectations and the data insights were invaluable."</p>
+                <div class="author">- Sarah Johnson, CEO TechStart</div>
+            </div>
+            <div class="testimonial-content back">
+                <p>"Quick turnaround and excellent communication. I highly recommend working with her for any tech project."</p>
+                <div class="author">- David Lee, Founder DevCore</div>
+            </div>
+            </div>
+        </div>
+        </section>
+
+
+        <section class="contact-section" id="contact">
+        <h2 style="color: white; margin-bottom: 2rem;">Ready to Work Together?</h2>
+        <a href="#contact" class="contact-button" onclick="showContactPage()">Get In Touch</a>
+        </section>
+            <section class="contact-page" id="frontend-contact">
+            <div class="container">
+                <h2>Let's Build Something Amazing Together</h2>
+                <p>I'm always excited to work on new projects and collaborate with like-minded professionals.</p>
+
+                <div class="contact-info">
+                <div class="contact-item">
+                    <div class="flip-card">
+                    <div class="flip-front">
+                        <h3>Email</h3>
+                    </div>
+                    <div class="flip-back">
+                        <p>ziziphodamane@gmail.com</p>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="flip-card">
+                    <div class="flip-front">
+                        <h3>Phone</h3>
+                    </div>
+                    <div class="flip-back">
+                        <p>(+27) 83 483 1795</p>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="flip-card">
+                    <div class="flip-front">
+                        <h3>Location</h3>
+                    </div>
+                    <div class="flip-back">
+                        <p>Carletonville, Gauteng, South Africa</p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                 <div class="social-media-icons" style="margin-top: 2rem; display: flex; gap: 1rem;">
+      <a href="https://facebook.com/yourprofile" target="_blank" aria-label="Facebook">
+        <img src="facebook-icon.svg" alt="Facebook" width="30" height="30" />
+      </a>
+      <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter">
+        <img src="twitter-icon.svg" alt="Twitter" width="30" height="30" />
+      </a>
+      <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn">
+        <img src="linkedin-icon.svg" alt="LinkedIn" width="30" height="30" />
+      </a>
+      <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram">
+        <img src="instagram-icon.svg" alt="Instagram" width="30" height="30" />
+      </a>
+    </div>
+
+                            </section>
+    <footer class="footer">
+            <p>&copy; 2025 Your Name. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <div class="portfolio-page" id="frontendPortfolio">
+    
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="#" class="logo" onclick="showLandingPage()">YI</a>
+                <ul class="nav-links">
+                    <li><a href="#" onclick="showLandingPage()">Home</a></li>
+                    <li><a href="#frontend-about">About</a></li>
+                    <li><a href="#frontend-projects">Projects</a></li>
+                    <li><a href="#frontend-contact">Contact</a></li>
+                </ul>
+                <div class="hamburger" onclick="toggleMobileMenu('frontendMenu')">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="mobile-menu" id="frontendMenu">
+                    <ul>
+                        <li><a href="#" onclick="showLandingPage(); closeMobileMenu('frontendMenu')">Home</a></li>
+                        <li><a href="#frontend-about" onclick="closeMobileMenu('frontendMenu')">About</a></li>
+                        <li><a href="#frontend-projects" onclick="closeMobileMenu('frontendMenu')">Projects</a></li>
+                        <li><a href="#frontend-contact" onclick="closeMobileMenu('frontendMenu')">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+     
+        <section class="portfolio-hero">
+            <div class="container">
+                <h1>Frontend Developer</h1>
+                    <p class="hero-description">
+                    Building beautiful, functional web applications with React while turning data into meaningful insights that drive business decisions.
+                </p>            <br>
+            <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary" onclick="downloadCV()" download>
+                        <svg class="btn-icon" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                        Download CV
+                    </a>
+                    <a href="https://linkedin.com/in/your-profile" class="btn btn-secondary" target="_blank">
+                        <svg class="btn-icon" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd"></path>
+                        </svg>
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section" id="frontend-about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-image"><img src="" alt=""></div>
+                    <div class="about-text">
+                        <h2>About Me</h2>
+                        <p>My journey into web development began three years ago when I discovered the power of creating digital experiences that could impact people's lives. What started as curiosity about how websites work quickly evolved into a passion for crafting exceptional user interfaces.</p>
+                        
+                        <p>I pursued formal education in computer science while simultaneously diving deep into modern web technologies. The biggest challenge I faced was keeping up with the rapidly evolving JavaScript ecosystem, but I overcame this by building projects consistently and staying connected with the developer community.</p>
+                        
+                        <p>Today, I specialize in creating responsive, accessible, and performant web applications using React, JavaScript, and modern CSS frameworks. I believe in writing clean, maintainable code and always prioritize user experience in every project I undertake.</p>
+                        
+                        <p>My approach combines technical expertise with creative problem-solving, ensuring that every application I build not only functions flawlessly but also provides an intuitive and engaging user experience.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects-section" id="frontend-projects">
+            <div class="container">
+                <h2>My Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            E-Commerce Platform
+                            <div class="project-overlay">
+                                <h4>E-Commerce Platform</h4>
+                                <p>A full-featured e-commerce solution with shopping cart, payment integration, and admin dashboard. Built to help small businesses establish their online presence.</p>
+                                <div class="tech-stack">React, Node.js, MongoDB, Stripe API</div>
+                                <div class="project-links">
+                                    <a href="#">GitHub</a>
+                                    <a href="#">Live Demo</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>E-Commerce Platform</h3>
+                            <p>A comprehensive online shopping platform with modern UI/UX design.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            Task Management App
+                            <div class="project-overlay">
+                                <h4>Task Management App</h4>
+                                <p>A collaborative project management tool inspired by the need for better team coordination. Features real-time updates and intuitive drag-and-drop functionality.</p>
+                                <div class="tech-stack">React, Firebase, Material-UI</div>
+                                <div class="project-links">
+                                    <a href="#">GitHub</a>
+                                    <a href="#">Live Demo</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Task Management App</h3>
+                            <p>Streamline team productivity with this intuitive task management solution.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            Weather Dashboard
+                            <div class="project-overlay">
+                                <h4>Weather Dashboard</h4>
+                                <p>A responsive weather application that provides detailed forecasts and weather analytics. Created to practice API integration and data visualization.</p>
+                                <div class="tech-stack">JavaScript, Chart.js, OpenWeather API</div>
+                                <div class="project-links">
+                                    <a href="#">GitHub</a>
+                                    <a href="#">Live Demo</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Weather Dashboard</h3>
+                            <p>Beautiful weather interface with detailed forecasts and analytics.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            Portfolio Website
+                            <div class="project-overlay">
+                                <h4>Portfolio Website</h4>
+                                <p>A responsive portfolio website showcasing my work and skills. Built with modern design principles and smooth animations to create an engaging user experience.</p>
+                                <div class="tech-stack">HTML5, CSS3, JavaScript, Bootstrap</div>
+                                <div class="project-links">
+                                    <a href="#">GitHub</a>
+                                    <a href="#">Live Demo</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Portfolio Website</h3>
+                            <p>A modern, responsive portfolio showcasing my development skills.</p>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </section>
+        <section style="background-color: #fff;" class="contact-section" id="frontend-contact">
+  <div class="container" id="frontend-contact">
+    <h2>Let's Build Something Amazing Together</h2>
+    <p>I'm always excited to work on new projects and collaborate with like-minded professionals.</p>
+
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="flip-card">
+          <div class="flip-front">
+            <h3>Email</h3>
+          </div>
+          <div class="flip-back">
+            <p><a href="">Buhle Damane</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="flip-card">
+          <div class="flip-front">
+            <h3>Phone</h3>
+          </div>
+          <div class="flip-back">
+            <p>(+27) 83 483 1795</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="flip-card">
+          <div class="flip-front">
+            <h3>Location</h3>
+          </div>
+          <div class="flip-back">
+            <p>Carletonville, Gauteng, South Africa</p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="flip-card">
+          <div class="flip-front">
+            <h3>LinkedIn</h3>
+          </div>
+          <div class="flip-back">
+            <p><a href="">Buhle Damane</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  
+    <div class="social-media-icons" style="margin-top: 2rem; display: flex; gap: 1rem;">
+      <a href="https://facebook.com/yourprofile" target="_blank" aria-label="Facebook">
+        <img src="facebook-icon.svg" alt="Facebook" width="30" height="30" />
+      </a>
+      <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter">
+        <img src="twitter-icon.svg" alt="Twitter" width="30" height="30" />
+      </a>
+      <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram">
+        <img src="instagram-icon.svg" alt="Instagram" width="30" height="30" />
+      </a>
+    </div>
+  </div>
+</section>
+
+        <footer class="footer">
+            <p>&copy; 2025 Your Name. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <div class="portfolio-page" id="dataPortfolio">
+  
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="#" class="logo" onclick="showLandingPage()">YI</a>
+                <ul class="nav-links">
+                    <li><a href="#" onclick="showLandingPage()">Home</a></li>
+                    <li><a href="#data-about">About</a></li>
+                    <li><a href="#data-projects">Projects</a></li>
+                    <li><a href="#data-contact">Contact</a></li>
+                </ul>
+                <div class="hamburger" onclick="toggleMobileMenu('dataMenu')">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="mobile-menu" id="dataMenu">
+                    <ul>
+                        <li><a href="#" onclick="showLandingPage(); closeMobileMenu('dataMenu')">Home</a></li>
+                        <li><a href="#data-about" onclick="closeMobileMenu('dataMenu')">About</a></li>
+                        <li><a href="#data-projects" onclick="closeMobileMenu('dataMenu')">Projects</a></li>
+                        <li><a href="#data-Contact" onclick="closeMobileMenu('dataMenu')">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+  
+        <section class="portfolio-hero">
+            <div class="container">
+                <h1>Data Analyst</h1>
+                <p>Transforming raw data into actionable insights that drive business decisions and growth.</p>
+            </div>
+        </section>
+
+        <section class="about-section" id="data-about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-image">Your Photo</div>
+                    <div class="about-text">
+                        <h2>About My Data Journey</h2>
+                        <p>My fascination with data analytics began when I realized the power of data-driven decision making in business. I started learning Python and SQL two years ago, driven by the desire to uncover meaningful patterns and insights from complex datasets.</p>
+                        
+                        <p>I pursued comprehensive training in data analytics, mastering tools like Python (Pandas, NumPy), SQL, Tableau, and Power BI. The biggest challenge was learning to communicate complex findings to non-technical stakeholders, which I overcame by focusing on storytelling through data visualization.</p>
+                        
+                        <p>Today, I specialize in end-to-end data analysis projects, from data collection and cleaning to advanced analytics and interactive dashboard creation. I pride myself on translating business questions into analytical frameworks and delivering insights that drive strategic decisions.</p>
+                        
+                        <p>My approach combines statistical rigor with business acumen, ensuring that every analysis I conduct not only answers the immediate question but also provides actionable recommendations for business growth.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects-section" id="data-projects">
+            <div class="container">
+                <h2>My Analytics Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            Sales Analytics Dashboard
+                            <div class="project-overlay">
+                                <h4>Sales Analytics Dashboard</h4>
+                                <p>A comprehensive sales performance dashboard that tracks KPIs, identifies trends, and provides actionable insights for a retail company. Helped increase sales by 15% through data-driven recommendations.</p>
+                                <div class="tech-stack">Power BI, SQL, Excel, Python</div>
+                                <div class="project-links">
+                                    <a href="#">GitHub</a>
+                                    <a href="#">Live Demo</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Sales Analytics Dashboard</h3>
+                            <p>Interactive dashboard providing real-time sales insights and performance metrics.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            Customer Segmentation Analysis
+                            <div class="project-overlay">
+                                <h4>Customer Segmentation Analysis</h4>
+                                <p>Advanced customer segmentation using machine learning techniques to identify distinct customer groups and their behaviors. Enabled targeted marketing campaigns that improved conversion rates by 25%.</p>
+                                <div class="tech-stack">Python, Pandas, Scikit-learn, Tableau</div>
+                                <div class="project-links">
+                                    <a href="#">GitHub</a>
+                                    <a href="#">Live Demo</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Customer Segmentation Analysis</h3>
+                            <p>ML-powered customer segmentation for targeted marketing strategies.</p>
+                        </div>
+                    </div>
+
+                    <div class="empty-project">
+                        <p>Future Project Space #1</p>
+                    </div>
+
+                    <div class="empty-project">
+                        <p>Future Project Space #2</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+              <section style="background-color: #fff;" class="contact-section" id="data-contact">
+  <div class="container" id="data-contact">
+    <h2>Let's Build Something Amazing Together</h2>
+    <p>I'm always excited to work on new projects and collaborate with like-minded professionals.</p>
+
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="flip-card">
+          <div class="flip-front">
+            <h3>Email</h3>
+          </div>
+          <div class="flip-back">
+            <p><a href="">Buhle Damane</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="flip-card">
+          <div class="flip-front">
+            <h3>Phone</h3>
+          </div>
+          <div class="flip-back">
+            <p>(+27) 83 483 1795</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="flip-card">
+          <div class="flip-front">
+            <h3>Location</h3>
+          </div>
+          <div class="flip-back">
+            <p>Carletonville, Gauteng, South Africa</p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="flip-card">
+          <div class="flip-front">
+            <h3>LinkedIn</h3>
+          </div>
+          <div class="flip-back">
+            <p><a href="">Buhle Damane</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  
+    <div class="social-media-icons" style="margin-top: 2rem; display: flex; gap: 1rem;">
+      <a href="https://facebook.com/yourprofile" target="_blank" aria-label="Facebook">
+        <img src="facebook-icon.svg" alt="Facebook" width="30" height="30" />
+      </a>
+      <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter">
+        <img src="twitter-icon.svg" alt="Twitter" width="30" height="30" />
+      </a>
+      <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram">
+        <img src="instagram-icon.svg" alt="Instagram" width="30" height="30" />
+      </a>
+    </div>
+  </div>
+</section>
+        <footer class="footer">
+            <p>&copy; 2025 Your Name. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+  
+        function toggleMobileMenu(menuId) {
+            const menu = document.getElementById(menuId);
+            const hamburger = menu.previousElementSibling;
+            
+            menu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        function closeMobileMenu(menuId) {
+            const menu = document.getElementById(menuId);
+            const hamburger = menu.previousElementSibling;
+            
+            menu.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
+
+        function showLandingPage() {
+            document.getElementById('landingPage').classList.remove('hidden');
+            document.getElementById('frontendPortfolio').classList.remove('active');
+            document.getElementById('dataPortfolio').classList.remove('active');
+        }
+
+        function showPortfolio(type) {
+            document.getElementById('landingPage').classList.add('hidden');
+            document.getElementById('frontendPortfolio').classList.remove('active');
+            document.getElementById('dataPortfolio').classList.remove('active');
+            
+            if (type === 'frontend') {
+                document.getElementById('frontendPortfolio').classList.add('active');
+            } else if (type === 'data') {
+                document.getElementById('dataPortfolio').classList.add('active');
+            }
+        }
+
+        function showContactPage() {
+     
+            const contactSection = document.getElementById('contact');
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-links a[href^="#"], .mobile-menu a[href^="#"]');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href.startsWith('#') && href !== '#') {
+                        e.preventDefault();
+                        const targetId = href.substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }
+                });
+            });
+
+            document.addEventListener('click', function(e) {
+                const mobileMenus = document.querySelectorAll('.mobile-menu');
+                const hamburgers = document.querySelectorAll('.hamburger');
+                
+                let clickedInsideMenu = false;
+                hamburgers.forEach(hamburger => {
+                    if (hamburger.contains(e.target)) {
+                        clickedInsideMenu = true;
+                    }
+                });
+                
+                mobileMenus.forEach(menu => {
+                    if (menu.contains(e.target)) {
+                        clickedInsideMenu = true;
+                    }
+                });
+                
+                if (!clickedInsideMenu) {
+                    mobileMenus.forEach(menu => {
+                        menu.classList.remove('active');
+                        const hamburger = menu.previousElementSibling;
+                        if (hamburger && hamburger.classList.contains('hamburger')) {
+                            hamburger.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        });
+
+       
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+    </script>
+    <script>
+  const testimonials = [
+    {
+      quote: `"Exceptional work quality and attention to detail. The web application exceeded our expectations and the data insights were invaluable."`,
+      author: "- Sarah Johnson, CEO TechStart"
+    },
+    {
+      quote: `"Quick turnaround and excellent communication. I highly recommend working with her for any tech project."`,
+      author: "- David Lee, Founder DevCore"
+    },
+    {
+      quote: `"Professional and reliable. She transformed our outdated website into something modern and user-friendly."`,
+      author: "- Amanda Smith, Marketing Director"
+    },
+    {
+      quote: `"Superb understanding of user needs. Our analytics and dashboards have never looked better."`,
+      author: "- Michael Chen, Product Manager"
+    },
+    {
+      quote: `"Delivers beyond expectations. It’s rare to find someone so skilled and passionate."`,
+      author: "- Lindiwe Mokoena, COO DigiSphere"
+    }
+  ];
+
+  let current = 0;
+  const card = document.querySelector('.testimonial-card');
+  const front = card.querySelector('.front');
+  const back = card.querySelector('.back');
+
+  function updateCardContent(face, content) {
+    face.querySelector('p').innerText = content.quote;
+    face.querySelector('.author').innerText = content.author;
+  }
+
+  function flipTestimonials() {
+    current = (current + 1) % testimonials.length;
+    card.style.transform = 'rotateY(180deg)';
+
+    setTimeout(() => {
+      updateCardContent(front, testimonials[current]);
+      card.style.transform = 'rotateY(0deg)';
+    }, 1000);
+  }
+
+  updateCardContent(front, testimonials[0]);
+  updateCardContent(back, testimonials[1]);
+
+  setInterval(() => {
+    flipTestimonials();
+  }, 5000); 
+</script>
+<script>
+  function showContactPage() {
+  const contactSection = document.getElementById('frontend-contact');
+
+  
+  contactSection.classList.add('active');
+
+  contactSection.scrollIntoView({ behavior: 'smooth' });
+
+  setTimeout(() => {
+    contactSection.classList.remove('active');
+  }, 60000); 
+}
+
+
+</script>
+</body>
+</html>
