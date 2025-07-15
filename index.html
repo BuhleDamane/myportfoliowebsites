@@ -45,6 +45,7 @@
             padding: 1rem 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            color: #667eea;
         }
 
         .nav-container {
@@ -56,7 +57,8 @@
             padding: 0 2rem;
         }
         .nav-container a{
-             font-family: var(--font-heading)
+             font-family: var(--font-heading);
+             color: #667eea;
         }
         .logo {
             font-size: 2rem;
@@ -74,12 +76,14 @@
             display: flex;
             list-style: none;
             gap: 2rem;
+            color: #667eea;
+            font-weight: 700;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: #333;
-            font-weight: 500;
+            color: #667eea;
+            font-weight: 700;
             transition: color 0.3s ease;
         }
 
@@ -481,7 +485,104 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
         }
- .hero-description {
+        .portfolio-hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 6rem 0;
+    text-align: center;
+}
+
+.portfolio-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.portfolio-hero p {
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background: white;
+    color: #667eea;
+    border-color: white;
+}
+
+.btn-primary:hover {
+    background: transparent;
+    color: white;
+    border-color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border-color: white;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+}
+
+.btn svg {
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .portfolio-hero {
+        padding: 4rem 0;
+    }
+
+    .portfolio-hero h1 {
+        font-size: 2rem;
+    }
+
+    .portfolio-hero p {
+        font-size: 1.1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+}
+        .hero-description {
             font-size: 1.1rem;
             color: #e9ecef;
             margin-bottom: 40px;
@@ -572,9 +673,15 @@
 
         .about-content {
             display: grid;
-            grid-template-columns: 1fr 2fr;
+            grid-template-columns: 350px 1fr;
             gap: 4rem;
-            align-items: center;
+            align-items: flex-start;
+        }
+
+        .left-column {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
         }
 
         .about-image {
@@ -588,7 +695,15 @@
             color: white;
             font-size: 1.5rem;
             font-weight: bold;
-            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
         }
 
         .about-text h2 {
@@ -602,6 +717,136 @@
             line-height: 1.8;
             margin-bottom: 1.5rem;
             color: #666;
+        }
+
+        .certificates-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 2rem;
+            height: fit-content;
+            width: 100%;
+            max-width: 350px;
+        }
+
+        .certificates-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+            text-align: center;
+        }
+
+        .certificates-toggle {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .certificates-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .certificates-toggle:active {
+            transform: translateY(0);
+        }
+
+        .certificates-list {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .certificates-list.show {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .certificate-item {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .certificate-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .certificate-item h4 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .certificate-item p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .certificate-date {
+            color: #999;
+            font-size: 0.8rem;
+            font-style: italic;
+        }
+
+        @media (max-width: 968px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .left-column {
+                order: 1;
+                align-items: center;
+            }
+
+            .about-text {
+                order: 2;
+            }
+
+            .certificates-section {
+                order: 3;
+                max-width: 100%;
+            }
+
+            .about-image {
+                margin: 0 auto;
+            }
+
+            .about-text h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-text h2 {
+                font-size: 1.8rem;
+            }
+            
+            .certificates-section {
+                padding: 1.5rem;
+            }
         }
 
         .projects-section {
@@ -990,7 +1235,7 @@
                     <li><a href="#" onclick="showLandingPage()">Home</a></li>
                     <li><a href="#frontend-about">About</a></li>
                     <li><a href="#frontend-projects">Projects</a></li>
-                    <li><a href="#frontend-contact">Contact</a></li>
+                    <li><a href="#Frontend-contact">Contact</a></li>
                 </ul>
                 <div class="hamburger" onclick="toggleMobileMenu('frontendMenu')">
                     <span></span>
@@ -1002,7 +1247,7 @@
                         <li><a href="#" onclick="showLandingPage(); closeMobileMenu('frontendMenu')">Home</a></li>
                         <li><a href="#frontend-about" onclick="closeMobileMenu('frontendMenu')">About</a></li>
                         <li><a href="#frontend-projects" onclick="closeMobileMenu('frontendMenu')">Projects</a></li>
-                        <li><a href="#frontend-contact" onclick="closeMobileMenu('frontendMenu')">Contact</a></li>
+                        <li><a href="#Frontend-contact" onclick="closeMobileMenu('frontendMenu')">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -1032,23 +1277,62 @@
             </div>
         </section>
 
-        <section class="about-section" id="frontend-about">
-            <div class="container">
-                <div class="about-content">
-                    <div class="about-image"><img src="" alt=""></div>
-                    <div class="about-text">
-                        <h2>About Me</h2>
-                        <p>My journey into web development began three years ago when I discovered the power of creating digital experiences that could impact people's lives. What started as curiosity about how websites work quickly evolved into a passion for crafting exceptional user interfaces.</p>
+         <section class="about-section" id="frontend-about">
+        <div class="container">
+            <div class="about-content">
+     
+                <div class="left-column">
+                    <div class="about-image">
+                        <img src="images/image.png" alt="Profile Picture" onerror="this.style.display='none'; this.parentElement.innerHTML='Your Photo Here';">
+                    </div>
+
+                    <div class="certificates-section">
+                        <h3>Certificates</h3>
+                        <button class="certificates-toggle" onclick="toggleCertificates()">
+                            <span id="toggle-text">View Certificates</span>
+                        </button>
                         
-                        <p>I pursued formal education in computer science while simultaneously diving deep into modern web technologies. The biggest challenge I faced was keeping up with the rapidly evolving JavaScript ecosystem, but I overcame this by building projects consistently and staying connected with the developer community.</p>
-                        
-                        <p>Today, I specialize in creating responsive, accessible, and performant web applications using React, JavaScript, and modern CSS frameworks. I believe in writing clean, maintainable code and always prioritize user experience in every project I undertake.</p>
-                        
-                        <p>My approach combines technical expertise with creative problem-solving, ensuring that every application I build not only functions flawlessly but also provides an intuitive and engaging user experience.</p>
+                        <div class="certificates-list" id="certificates-list">
+                            <div class="certificate-item">
+                                <h4>JavaScript Fundamentals</h4>
+                                <p>Certificate in Modern JavaScript Development</p>
+                                <div class="certificate-date">Completed: March 2024</div>
+                            </div>
+                            
+                            <div class="certificate-item">
+                                <h4>React Development</h4>
+                                <p>Advanced React and Redux Certification</p>
+                                <div class="certificate-date">Completed: June 2024</div>
+                            </div>
+                            
+                            <div class="certificate-item">
+                                <h4>Web Accessibility</h4>
+                                <p>WCAG 2.1 Compliance and Best Practices</p>
+                                <div class="certificate-date">Completed: August 2024</div>
+                            </div>
+                            
+                            <div class="certificate-item">
+                                <h4>Cloud Computing</h4>
+                                <p>AWS Certified Developer Associate</p>
+                                <div class="certificate-date">Completed: November 2024</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <div class="about-text">
+                    <h2>About Me</h2>
+                    <p>My journey into web development began three years ago when I discovered the power of creating digital experiences that could impact people's lives. What started as curiosity about how websites work quickly evolved into a passion for crafting exceptional user interfaces.</p>
+                    
+                    <p>I pursued formal education in computer science while simultaneously diving deep into modern web technologies. The biggest challenge I faced was keeping up with the rapidly evolving JavaScript ecosystem, but I overcame this by building projects consistently and staying connected with the developer community.</p>
+                    
+                    <p>Today, I specialize in creating responsive, accessible, and performant web applications using React, JavaScript, and modern CSS frameworks. I believe in writing clean, maintainable code and always prioritize user experience in every project I undertake.</p>
+                    
+                    <p>My approach combines technical expertise with creative problem-solving, ensuring that every application I build not only functions flawlessly but also provides an intuitive and engaging user experience.</p>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
         <section class="projects-section" id="frontend-projects">
             <div class="container">
@@ -1132,8 +1416,8 @@
                 </div>
             </div> 
         </section>
-        <section style="background-color: #fff;" class="contact-section" id="frontend-contact">
-  <div class="container" id="frontend-contact">
+        <section style="background-color: #fff;" class="contact-section" id="Frontend-contact" >
+  <div class="container" id="Frontend-contact">
     <h2>Let's Build Something Amazing Together</h2>
     <p>I'm always excited to work on new projects and collaborate with like-minded professionals.</p>
 
@@ -1230,30 +1514,88 @@
         </nav>
 
   
-        <section class="portfolio-hero">
-            <div class="container">
-                <h1>Data Analyst</h1>
-                <p>Transforming raw data into actionable insights that drive business decisions and growth.</p>
-            </div>
-        </section>
+       <section class="portfolio-hero">
+    <div class="container">
+        <h1>Data Analyst</h1>
+        <p>Transforming raw data into actionable insights that drive business decisions and growth.</p>
+        <br>
+        <div class="hero-buttons">
+            <a href="cv/your-cv.pdf" download class="btn btn-primary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14,2 14,8 20,8"/>
+                    <line x1="16" y1="13" x2="8" y2="13"/>
+                    <line x1="16" y1="17" x2="8" y2="17"/>
+                    <polyline points="10,9 9,9 8,9"/>
+                </svg>
+                Download CV
+            </a>
+            <a href="https://linkedin.com/in/your-profile" target="_blank" class="btn btn-secondary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+                LinkedIn
+            </a>
+        </div>
+    </div>
+</section>
 
-        <section class="about-section" id="data-about">
-            <div class="container">
-                <div class="about-content">
-                    <div class="about-image">Your Photo</div>
-                    <div class="about-text">
-                        <h2>About My Data Journey</h2>
-                        <p>My fascination with data analytics began when I realized the power of data-driven decision making in business. I started learning Python and SQL two years ago, driven by the desire to uncover meaningful patterns and insights from complex datasets.</p>
+       <section class="about-section" id="data-about">
+    <div class="container">
+        <div class="about-content">
+            <!-- Left Column: Profile Image + Certificates -->
+            <div class="left-column">
+                <div class="about-image">
+                    <img src="images/image.png" alt="Profile Picture" onerror="this.style.display='none'; this.parentElement.innerHTML='Your Photo Here';">
+                </div>
+
+                <div class="certificates-section">
+                    <h3>Certificates</h3>
+                    <button class="certificates-toggle" onclick="toggleCertificates()">
+                        <span id="toggle-text">View Certificates</span>
+                    </button>
+                    
+                    <div class="certificates-list" id="certificates-list">
+                        <div class="certificate-item">
+                            <h4>Python for Data Science</h4>
+                            <p>Advanced Python Programming for Data Analysis</p>
+                            <div class="certificate-date">Completed: March 2024</div>
+                        </div>
                         
-                        <p>I pursued comprehensive training in data analytics, mastering tools like Python (Pandas, NumPy), SQL, Tableau, and Power BI. The biggest challenge was learning to communicate complex findings to non-technical stakeholders, which I overcame by focusing on storytelling through data visualization.</p>
+                        <div class="certificate-item">
+                            <h4>SQL Database Management</h4>
+                            <p>Advanced SQL Queries and Database Design</p>
+                            <div class="certificate-date">Completed: June 2024</div>
+                        </div>
                         
-                        <p>Today, I specialize in end-to-end data analysis projects, from data collection and cleaning to advanced analytics and interactive dashboard creation. I pride myself on translating business questions into analytical frameworks and delivering insights that drive strategic decisions.</p>
+                        <div class="certificate-item">
+                            <h4>Tableau Specialist</h4>
+                            <p>Data Visualization and Dashboard Creation</p>
+                            <div class="certificate-date">Completed: August 2024</div>
+                        </div>
                         
-                        <p>My approach combines statistical rigor with business acumen, ensuring that every analysis I conduct not only answers the immediate question but also provides actionable recommendations for business growth.</p>
+                        <div class="certificate-item">
+                            <h4>Power BI Certification</h4>
+                            <p>Microsoft Power BI Data Analyst Associate</p>
+                            <div class="certificate-date">Completed: November 2024</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+
+            <div class="about-text">
+                <h2>About My Data Journey</h2>
+                <p>My fascination with data analytics began when I realized the power of data-driven decision making in business. I started learning Python and SQL two years ago, driven by the desire to uncover meaningful patterns and insights from complex datasets.</p>
+                
+                <p>I pursued comprehensive training in data analytics, mastering tools like Python (Pandas, NumPy), SQL, Tableau, and Power BI. The biggest challenge was learning to communicate complex findings to non-technical stakeholders, which I overcame by focusing on storytelling through data visualization.</p>
+                
+                <p>Today, I specialize in end-to-end data analysis projects, from data collection and cleaning to advanced analytics and interactive dashboard creation. I pride myself on translating business questions into analytical frameworks and delivering insights that drive strategic decisions.</p>
+                
+                <p>My approach combines statistical rigor with business acumen, ensuring that every analysis I conduct not only answers the immediate question but also provides actionable recommendations for business growth.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
         <section class="projects-section" id="data-projects">
             <div class="container">
@@ -1537,8 +1879,21 @@
     contactSection.classList.remove('active');
   }, 60000); 
 }
-
-
 </script>
+ <script>
+        function toggleCertificates() {
+            const certificatesList = document.getElementById('certificates-list');
+            const toggleText = document.getElementById('toggle-text');
+            
+            if (certificatesList.classList.contains('show')) {
+                certificatesList.classList.remove('show');
+                toggleText.textContent = 'View Certificates';
+            } else {
+                certificatesList.classList.add('show');
+                toggleText.textContent = 'Hide Certificates';
+            }
+        }
+    </script>
+   
 </body>
 </html>
