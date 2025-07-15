@@ -1896,6 +1896,26 @@
             }
         }
     </script>
+   <script>
+function toggleCertificates() {
+    const certificatesList = document.getElementById('certificates-list');
+    const toggleText = document.getElementById('toggle-text');
    
+    if (certificatesList.style.display === 'none' || certificatesList.style.display === '') {
+    
+        certificatesList.style.display = 'block';
+        toggleText.textContent = 'Hide Certificates';
+    } else {
+ 
+        certificatesList.style.display = 'none';
+        toggleText.textContent = 'View Certificates';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const certificatesList = document.getElementById('certificates-list');
+    certificatesList.style.display = 'none';
+});
+</script>
 </body>
 </html>
