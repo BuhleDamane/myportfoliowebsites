@@ -1543,7 +1543,7 @@
     </div>
 </section>
 
-       <section class="about-section" id="data-about">
+      <section class="about-section" id="data-about">
     <div class="container">
         <div class="about-content">
             <div class="left-column">
@@ -1554,10 +1554,10 @@
                 <div class="certificates-section">
                     <h3>Certificates</h3>
                     <button class="certificates-toggle" onclick="toggleCertificates()">
-                        <span id="toggle-text">View Certificates</span>
+                        <span id="data-toggle-text">View Certificates</span>
                     </button>
                     
-                    <div class="certificates-list" id="certificates-list">
+                    <div class="certificates-list" id="data-certificates-list">
                         <div class="certificate-item">
                             <h4>Python for Data Science</h4>
                             <p>Advanced Python Programming for Data Analysis</p>
@@ -1882,40 +1882,55 @@
   }, 60000); 
 }
 </script>
- <script>
-        function toggleCertificates() {
-            const certificatesList = document.getElementById('certificates-list');
-            const toggleText = document.getElementById('toggle-text');
-            
-            if (certificatesList.classList.contains('show')) {
-                certificatesList.classList.remove('show');
-                toggleText.textContent = 'View Certificates';
-            } else {
-                certificatesList.classList.add('show');
-                toggleText.textContent = 'Hide Certificates';
-            }
-        }
-    </script>
+ 
    <script>
-function toggleCertificates() {
-    const certificatesList = document.getElementById('certificates-list');
-    const toggleText = document.getElementById('toggle-text');
-   
-    if (certificatesList.style.display === 'none' || certificatesList.style.display === '') {
+    function toggleCertificates() {
+    const clickedButton = event.target.closest('.certificates-toggle');
     
+    const section = clickedButton.closest('.about-section');
+    const sectionId = section.id;
+    
+    let certificatesList, toggleText;
+   
+    if (sectionId === 'frontend-about') {
+        certificatesList = document.getElementById('certificates-list');
+        toggleText = document.getElementById('toggle-text');
+    } else if (sectionId === 'data-about') {
+        certificatesList = document.getElementById('data-certificates-list');
+        toggleText = document.getElementById('data-toggle-text');
+    }
+    
+    if (certificatesList.style.display === 'none' || certificatesList.style.display === '') {
         certificatesList.style.display = 'block';
         toggleText.textContent = 'Hide Certificates';
     } else {
- 
+        certificatesList.style.display = 'none';
+        toggleText.textContent = 'View Certificates';
+    }
+}
+
+function toggleCertificatesAlt() {
+    const clickedButton = event.target.closest('.certificates-toggle');
+    const section = clickedButton.closest('.about-section');
+    
+    const certificatesList = section.querySelector('.certificates-list');
+    const toggleText = section.querySelector('.certificates-toggle span');
+    
+    if (certificatesList.style.display === 'none' || certificatesList.style.display === '') {
+        certificatesList.style.display = 'block';
+        toggleText.textContent = 'Hide Certificates';
+    } else {
         certificatesList.style.display = 'none';
         toggleText.textContent = 'View Certificates';
     }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const certificatesList = document.getElementById('certificates-list');
-    certificatesList.style.display = 'none';
+    const certificatesLists = document.querySelectorAll('.certificates-list');
+    certificatesLists.forEach(list => {
+        list.style.display = 'none';
+    });
 });
-</script>
+   </script>
 </body>
 </html>
