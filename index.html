@@ -7,6 +7,7 @@
     <meta name="keywords" content="frontend developer, data analyst, web development, data visualization, JavaScript, Python, SQL, React, portfolio">
     <meta name="author" content="Your Name">
     <title>Buhle Damane- Portfolio Website - Frontend Developer & Data Analyst</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap" rel="stylesheet">
@@ -1083,6 +1084,49 @@
                 display: flex;
             }
         }
+         .social-media-icons {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-media-icons a {
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-media-icons a:hover {
+            transform: scale(1.1);
+        }
+        
+        .social-media-icons i {
+            font-size: 2rem; 
+        }
+        
+        .fa-square-facebook {
+            color: #1877F2;
+        }
+       
+        .fa-square-x-twitter {
+            color: #000000;
+        }
+       
+        .fa-linkedin {
+            color: #0A66C2;
+        }
+        
+        .fa-square-instagram {
+            background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+       
+        @supports not (background-clip: text) {
+            .fa-square-instagram {
+                color: #E4405F;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1104,7 +1148,6 @@
                 <div class="mobile-menu" id="landingMenu">
                     <ul>
                         <li><a href="#home" onclick="closeMobileMenu('landingMenu')">Home</a></li>
-                        <li><a href="#about" onclick="closeMobileMenu('landingMenu')">About</a></li>
                         <li><a href="#contact" onclick="closeMobileMenu('landingMenu')">Contact</a></li>
                     </ul>
                 </div>
@@ -1203,24 +1246,24 @@
                         <h3>Location</h3>
                     </div>
                     <div class="flip-back">
-                        <p>Carletonville, Gauteng, South Africa</p>
+                        <p>Johannesburg, South Africa</p>
                     </div>
                     </div>
                 </div>
                 </div>
                  <div class="social-media-icons" style="margin-top: 2rem; display: flex; gap: 1rem;">
-      <a href="https://facebook.com/yourprofile" target="_blank" aria-label="Facebook">
-        <img src="facebook-icon.svg" alt="Facebook" width="30" height="30" />
-      </a>
-      <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter">
-        <img src="twitter-icon.svg" alt="Twitter" width="30" height="30" />
-      </a>
-      <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn">
-        <img src="linkedin-icon.svg" alt="LinkedIn" width="30" height="30" />
-      </a>
-      <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram">
-        <img src="instagram-icon.svg" alt="Instagram" width="30" height="30" />
-      </a>
+        <a href="https://facebook.com/yourprofile" target="_blank" aria-label="Facebook">
+            <i class="fa-brands fa-square-facebook"></i>
+        </a>
+        <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter">
+            <i class="fa-brands fa-square-x-twitter"></i>
+        </a>
+        <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram">
+            <i class="fa-brands fa-square-instagram"></i>
+        </a>
     </div>
 
                             </section>
@@ -1270,7 +1313,7 @@
                         </svg>
                         Download CV
                     </a>
-                    <a href="https://linkedin.com/in/your-profile" class="btn btn-secondary" target="_blank">
+                    <a href="https://linkedin.com/in/buhle-damane" class="btn btn-secondary" target="_blank">
                         <svg class="btn-icon" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd"></path>
                         </svg>
@@ -1453,7 +1496,7 @@
             <h3>Location</h3>
           </div>
           <div class="flip-back">
-            <p>Carletonville, Gauteng, South Africa</p>
+            <p>Johannesburg, South Africa</p>
           </div>
         </div>
       </div>
@@ -1471,17 +1514,19 @@
 
   
     <div class="social-media-icons" style="margin-top: 2rem; display: flex; gap: 1rem;">
-      <a href="https://facebook.com/yourprofile" target="_blank" aria-label="Facebook">
-        <img src="facebook-icon.svg" alt="Facebook" width="30" height="30" />
-      </a>
-      <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter">
-        <img src="twitter-icon.svg" alt="Twitter" width="30" height="30" />
-      </a>
-      <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram">
-        <img src="instagram-icon.svg" alt="Instagram" width="30" height="30" />
-      </a>
+        <a href="https://facebook.com/yourprofile" target="_blank" aria-label="Facebook">
+            <i class="fa-brands fa-square-facebook"></i>
+        </a>
+        <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter">
+            <i class="fa-brands fa-square-x-twitter"></i>
+        </a>
+        <a href="https://linkedin.com/in/buhle-damane" target="_blank" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram">
+            <i class="fa-brands fa-square-instagram"></i>
+        </a>
     </div>
-  </div>
 </section>
 
         <footer class="footer">
@@ -1685,7 +1730,7 @@
             <h3>Location</h3>
           </div>
           <div class="flip-back">
-            <p>Carletonville, Gauteng, South Africa</p>
+            <p>Johannesburg, South Africa</p>
           </div>
         </div>
       </div>
@@ -1703,15 +1748,18 @@
 
   
     <div class="social-media-icons" style="margin-top: 2rem; display: flex; gap: 1rem;">
-      <a href="https://facebook.com/yourprofile" target="_blank" aria-label="Facebook">
-        <img src="facebook-icon.svg" alt="Facebook" width="30" height="30" />
-      </a>
-      <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter">
-        <img src="twitter-icon.svg" alt="Twitter" width="30" height="30" />
-      </a>
-      <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram">
-        <img src="instagram-icon.svg" alt="Instagram" width="30" height="30" />
-      </a>
+        <a href="https://facebook.com/yourprofile" target="_blank" aria-label="Facebook">
+            <i class="fa-brands fa-square-facebook"></i>
+        </a>
+        <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter">
+            <i class="fa-brands fa-square-x-twitter"></i>
+        </a>
+        <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram">
+            <i class="fa-brands fa-square-instagram"></i>
+        </a>
     </div>
   </div>
 </section>
